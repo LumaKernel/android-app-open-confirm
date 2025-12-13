@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">App Open Confirmation</string>
+    <string name="accessibility_service_description">This service monitors when selected apps are opened and shows a confirmation dialog before launching them.</string>
+    <string name="service_enabled">Service Enabled</string>
+    <string name="service_disabled">Service Disabled</string>
+    <string name="enable_service">Enable Service in Settings</string>
+    <string name="select_apps">Select Apps to Monitor</string>
+    <string name="monitored_apps_count">%d apps monitored</string>
+    <string name="open_app_title">Open App?</string>
+    <string name="open_app_message">Do you want to open %s?</string>
+    <string name="confirm">Open</string>
+    <string name="cancel">Cancel</string>
+    <string name="show_system_apps">Show System Apps</string>
+    <string name="app_selection_title">Select Apps</string>
+    <string name="no_apps_found">No apps found</string>
 </resources>

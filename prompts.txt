@@ -1,0 +1,123 @@
+## snippets
+
+```
+search/context7/github mcpで最新のベストプラクティス等に従いながら作成してください。
+```
+
+
+## done
+
+```
+Androidアプリを作ります。アプリの全体の一覧からアプリを選んで設定すると、開くための確認画面が出て、確認を押してから進めるようにする、または「閉じる」を押すと閉じるようにします。
+sewarch/context7/github mcpで最新のベストプラクティス等に従いながら作成してください。
+ultrathink
+```
+
+
+```
+⏺ 実装が完了しました。ビルドも成功しています。
+
+  実装概要
+
+  作成したファイル構成
+
+  app/src/main/java/dev/luma/appopenconfirmation/
+  ├── MainActivity.kt                    (更新)
+  ├── data/
+  │   ├── AppPreferencesDataStore.kt     (新規)
+  │   └── MonitoredAppsRepository.kt     (新規)
+  ├── model/
+  │   └── InstalledApp.kt                (新規)
+  ├── service/
+  │   └── AppOpenMonitorService.kt       (新規)
+  ├── confirmation/
+  │   └── ConfirmationActivity.kt        (新規)
+  └── ui/
+      ├── navigation/AppNavigation.kt    (新規)
+      ├── screen/
+      │   ├── MainScreen.kt              (新規)
+      │   └── AppSelectionScreen.kt      (新規)
+      ├── component/AppListItem.kt       (新規)
+      └── viewmodel/
+          ├── MainViewModel.kt           (新規)
+          └── AppSelectionViewModel.kt   (新規)
+
+  使い方
+
+  1. アプリをインストール・起動
+  2. 「Enable Service in Settings」ボタンを押してAccessibility設定画面へ
+  3. 「App Open Confirmation」サービスを有効化
+  4. メイン画面に戻り「Select Apps to Monitor」で監視対象アプリを選択
+  5. 選択したアプリを起動しようとすると、確認ダイアログが表示される
+
+  APKの場所
+
+  app/build/outputs/apk/debug/app-debug.apk
+```
+
+
+## done
+
+
+```
+apkファイルをGitHubリリースとして自動でリリースするようにしてください。
+search/context7/github mcpで最新のベストプラクティス等に従いながら作成してください。
+バージョンも自動で繰り上がっていくようにしてください。
+ultrathink
+```
+
+
+
+```
+⏺ GitHubリモートがまだ設定されていません。設定が完了しました。
+
+  作成したもの
+
+  1. 自動リリースワークフロー (.github/workflows/release.yml)
+
+  - トリガー: mainブランチへのプッシュ時
+  - 動作:
+    a. 最新のGitタグから次のバージョンを自動計算（パッチ番号を+1）
+    b. Debug APKとRelease APKをビルド
+    c. 新しいタグを作成
+    d. GitHubリリースを作成してAPKを添付
+
+  2. 手動リリースワークフロー (.github/workflows/manual-release.yml)
+
+  - トリガー: GitHub ActionsのUIから手動実行
+  - オプション: patch / minor / major から選択可能
+  - 例: v1.2.3 → minor選択 → v1.3.0
+
+  バージョン計算ルール
+
+  | バージョン | versionCode計算式           |
+  |------------|-----------------------------|
+  | v1.2.3     | 1*10000 + 2*100 + 3 = 10203 |
+
+  ---
+  セットアップ手順
+
+  GitHubにリポジトリを作成後、以下を実行：
+
+  cd /Users/luma/AndroidStudioProjects/AppOpenConfirmation
+
+  # リモート追加
+  git remote add origin https://github.com/YOUR_USERNAME/AppOpenConfirmation.git
+
+  # 変更をコミット
+  git add .
+  git commit -m "feat: add GitHub Actions for automatic APK release"
+
+  # プッシュ（これで自動リリースが実行される）
+  git push -u origin main
+
+  ---
+  Sources:
+  - https://docs.github.com/en/actions
+  - https://github.com/softprops/action-gh-release
+  - https://www.geeksforgeeks.org/android/automated-release-for-android-using-github-actions/
+```
+
+
+
+
